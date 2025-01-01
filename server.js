@@ -20,12 +20,12 @@ app.get("/api/:date?", (req, res) => {
   if (!date) {
     const currentDate = new Date();
     return res.json({
-      unix: currentDate.getTime(),
-      utc: currentDate.toUTCString(),
+      unix: currentDate.getTime(),    // Current Unix timestamp in milliseconds
+      utc: currentDate.toUTCString(), // Current UTC string
     });
   }
 
-  // Parse the date
+  // Parse the date (handling Unix timestamp or valid date string)
   let parsedDate;
   if (!isNaN(date)) {
     // If the date is a Unix timestamp
