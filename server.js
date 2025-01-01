@@ -40,7 +40,7 @@ app.get("/api/:date?", (req, res) => {
     return res.json({ error: "Invalid Date" });
   }
 
-  // Return the response
+  // Return the response with both Unix and UTC values
   return res.json({
     unix: parsedDate.getTime(),
     utc: parsedDate.toUTCString(),
